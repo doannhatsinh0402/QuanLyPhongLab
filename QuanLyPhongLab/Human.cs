@@ -16,12 +16,12 @@ namespace QuanLyPhongLab
             this.valueOfAge = age;
             this.valueOfId = id;
         }
-        public object truyvanDB(params object[] thamso)
+        public object truyvanDB(delegateCheckInOut check,params object[] thamso)
         {
             Database db = new Database();
             db.queryEvent += Db_queryEvent;
             db.Query(thamso);
-            return thamso[0];
+            return check(thamso);
 
         }
         private object Db_queryEvent(params object[] pas)
@@ -42,5 +42,6 @@ namespace QuanLyPhongLab
         {
             return "\nCheck out";
         }
+        public delegate object delegateCheckInOut(params object[] pas);
     }
 }

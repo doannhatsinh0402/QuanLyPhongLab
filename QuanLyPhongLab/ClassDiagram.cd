@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="QuanLyPhongLab.Device">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="QuanLyPhongLab.Device.delegateReportInfo" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Device.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>BAAAAAAIAAAgAAAAAAJAAQAAAAAAAAAQAACAAAAABgA=</HashCode>
+      <FileName>Device.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuanLyPhongLab.Database">
+    <Position X="7.5" Y="2.75" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Delegate Name="QuanLyPhongLab.Database.queryHandel" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Database.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAEAEAAAAAQBAAIAAAAAABAAQQAMQowAAIAAAAAQACA=</HashCode>
+      <FileName>Database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuanLyPhongLab.Human">
+    <Position X="13" Y="6.25" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Delegate Name="QuanLyPhongLab.Human.delegateCheckInOut" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Human.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAQAKAAAABAAAAAAAAAAAAAAAAAIg=</HashCode>
+      <FileName>Human.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuanLyPhongLab.Manager">
+    <Position X="14.25" Y="1.25" Width="5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Delegate Name="QuanLyPhongLab.Manager.delegateDV" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Manager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="QuanLyPhongLab.Manager.delegateCondition" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Manager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="QuanLyPhongLab.Manager.delegateFunction" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Manager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>EAEQAIGAAAFBCIYAQAAKIIAIkIoEBAgAhEAQQ4AAAAE=</HashCode>
+      <FileName>Manager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="QuanLyPhongLab.User">
+    <Position X="17" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAgAAAAAAAAAAAAAAAAgEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="QuanLyPhongLab.IinfoComputer">
+    <Position X="20.75" Y="3.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAABAAACAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>IinfoComputer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="QuanLyPhongLab.DataType">
+    <Position X="11" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAEAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>DataType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="QuanLyPhongLab.OperatingSystem">
+    <Position X="11" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAQAAAAAAAAAAAAAABAAAAAAAAQACAAAAIAAAAAA=</HashCode>
+      <FileName>OperatingSystem.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="QuanLyPhongLab.Status">
+    <Position X="12.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAgAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Status.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="QuanLyPhongLab.StatusRoom">
+    <Position X="12.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>StatusRoom.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="QuanLyPhongLab.Type">
+    <Position X="14.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Type.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="QuanLyPhongLab.TypeKeyBoard">
+    <Position X="14.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAACAAAAAAAA=</HashCode>
+      <FileName>TypeKeyboard.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="QuanLyPhongLab.TypeMouse">
+    <Position X="14.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAACA=</HashCode>
+      <FileName>TypeMouse.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="QuanLyPhongLab.OnOFF" Collapsed="true">
+    <Position X="14.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Manager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

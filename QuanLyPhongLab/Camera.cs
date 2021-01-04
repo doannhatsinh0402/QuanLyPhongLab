@@ -74,7 +74,7 @@ namespace QuanLyPhongLab
         }
         public object xoayCamera(delegateCamera camera, params object[] thamso)
         {
-            object kq = hoatDong();
+            object kq = hoatDong(thamso);
             object kq1 = xoayCR(camera, thamso);
             return kq1;
         }
@@ -84,11 +84,11 @@ namespace QuanLyPhongLab
         }
         public object xoayTrai(params object[] thamso)
         {
-            return "xoay trai";
+            return "xoay trai " + thamso[0] + " do";
         }
         public object xoayPhai(params object[] thamso)
         {
-            return "xoay phai";
+            return "xoay phai " + thamso[0] + " do";
         }
         public delegate object delegateCamera(params object[] thamso);
     }

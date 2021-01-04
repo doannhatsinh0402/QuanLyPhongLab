@@ -17,7 +17,14 @@ namespace QuanLyPhongLab
             this.nameOfOS = nameofos;
         }
         public Television(Device device) : base(device)
-        { }
+        { 
+        }
+        public static Television operator+(Television a, Television b)
+        {
+            Television c = new Television(a);
+            c.valueOfInch = a.valueOfInch + b.valueOfInch;
+            return c;
+        }
     }
 
 }

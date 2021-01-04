@@ -38,34 +38,13 @@ namespace QuanLyPhongLab
             this.idDevice = device.idDevice;
             this.dateOfInstall = device.dateOfInstall;
         }
-        public virtual object liquidityDV(params object[] thamso)
+      
+        public virtual object Report(params object[] thamso)
         {
-
-            return "tien thanh li \n";
+            return eventReport?.Invoke(thamso);
         }
-
-        public virtual object repairDV(params object[] thamso)
-        {
-            string dateKT = "ngay kiem tra";
-            eventDV?.Invoke(dateKT);
-            return dateKT;
-        }
-
-        public virtual object warrantyDV(params object[] thamso)
-        {
-            return " bao hanh \n";
-        }
-        public virtual string report(params object[] thamso)
-        {
-            string warranty = (string)this.warrantyDV();
-            string repair = (string)this.repairDV();
-           // string BuyNewDevice = (string)this.buyNewDV(repair);
-            string ThanhLi = (string)this.liquidityDV(repair);
-            //   string ketqua = warranty + repair + BuyNewDevice + ThanhLi;
-            return "bao cao";
-        }
-        public delegate void delegateDV(string kq);
-        public event delegateDV eventDV;
+        public delegate object delegateReportInfo(params object[] thamso);
+        public event delegateReportInfo eventReport;
     }
 
 }

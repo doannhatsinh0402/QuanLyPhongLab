@@ -19,7 +19,6 @@ namespace QuanLyPhongLab
         public List<Screen> listScreen { get; set; }
         public List<ServerModel> listServer { get; set; }
         public List<Television> listTelevision { get; set; }
-        public List<User> listUser { get; set; }
         public List<Cabinet> listCabinet { get; set; }
         public Database()
         {
@@ -32,7 +31,6 @@ namespace QuanLyPhongLab
             listScreen = new List<Screen>();
             listServer = new List<ServerModel>();
             listTelevision = new List<Television>();
-            listManager = new List<Manager>();
         }
         public Database(string pass, string name)
         {
@@ -40,7 +38,7 @@ namespace QuanLyPhongLab
             this.nameDB = name;
         }
         public Database(List<Camera> listcam, List<Chair> listchair,
-            List<Desk> listdesk, List<Keyboard> listkeyboard, List<Manager> listmanager,
+            List<Desk> listdesk, List<Keyboard> listkeyboard,
             List<Mouse> listmouse, List<PC> listpc, List<Screen> listscreen,
             List<ServerModel> listserver, List<Television> listtele, List<User> listuser, List<Cabinet> listcabinets) : this()
         {
@@ -52,8 +50,6 @@ namespace QuanLyPhongLab
                 this.listDesk.Add(new Desk(desk));
             foreach (var keyboard in listkeyboard)
                 this.listKeyboard.Add(new Keyboard(keyboard));
-            foreach (var manager in listmanager)
-                this.listManager.Add(new Manager(manager,manager.account,manager.password));
             foreach (var mouse in listmouse)
                 this.listMouse.Add(new Mouse(mouse));
             foreach (var pc in listpc)
@@ -64,8 +60,6 @@ namespace QuanLyPhongLab
                 this.listServer.Add(new ServerModel(server));
             foreach (var tele in listtele)
                 this.listTelevision.Add(new Television(tele));
-            foreach (var user in listuser)
-                this.listUser.Add(new User(user));
         }
         public Database(Database db)
         {
@@ -77,8 +71,6 @@ namespace QuanLyPhongLab
                 this.listDesk.Add(new Desk(desk));
             foreach (var keyboard in db.listKeyboard)
                 this.listKeyboard.Add(new Keyboard(keyboard));
-            foreach (var manager in db.listManager)
-                this.listManager.Add(new Manager(manager,manager.account,manager.password));
             foreach (var mouse in db.listMouse)
                 this.listMouse.Add(new Mouse(mouse));
             foreach (var pc in db.listPC)
@@ -89,8 +81,6 @@ namespace QuanLyPhongLab
                 this.listServer.Add(new ServerModel(server));
             foreach (var tele in db.listTelevision)
                 this.listTelevision.Add(new Television(tele));
-            foreach (var user in db.listUser)
-                this.listUser.Add(new User(user));
         }
         protected bool OpenConnection(params object[] pas)
         {
@@ -114,7 +104,7 @@ namespace QuanLyPhongLab
         {
             return "Close connection";
         }
-        public object Query(params object[] pas)
+        public virtual object Query(params object[] pas)
         {
             try
             {
@@ -125,7 +115,7 @@ namespace QuanLyPhongLab
             }
             object db = this.SelectDB();
             object tb = this.SelectTable(db);
-            object result = this.ExcuteQuery(tb, pas);
+            object result = this.ExcuteQuery(tb,pas);
             this.CloseConnection(db);
             return result;
         }

@@ -9,16 +9,20 @@ namespace QuanLyPhongLab
 
     public class User : Human
     {
-        private Database managerDB;
-        public User() { }
-        public User(string name, string age, string id) : base(name, age, id) { }
-        public User(Human human) : base(human) { }
+        private Database userDB;
+        public User() { userDB = new Database();  }
+        public User(string name, string age, string id) : base(name, age, id) {
+            userDB = new Database();
+        }
+        public User(Human human) : base(human) {
+            userDB = new Database();
+        }
         public object deviceBroke(params object[] thamso)
         {
-            managerDB.queryEvent += ManagerDB_queryEvent;
-            return managerDB.Query();
+            userDB.queryEvent += userDB_queryEvent;
+            return userDB.Query();
         }
-        private object ManagerDB_queryEvent(params object[] pas)
+        private object userDB_queryEvent(params object[] pas)
         {
             return "ten thiet bi hu";
         }

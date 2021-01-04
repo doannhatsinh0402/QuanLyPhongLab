@@ -55,13 +55,13 @@ namespace QuanLyPhongLab
         }
 
         //
-        public virtual object ManagerActionChangePassword(delegateFunction func,params object[] pas)
+        public virtual object ManagerAction(delegateFunction func,params object[] pas)
         {
             if (this.statusManager==OnOFF.on)
             {
                 return SelectFunction(func, pas); //
             }
-            return "sai mat khau hoac tai khoan";
+            return "Chua dang nhap";
         }
         //
         protected object SelectFunction(delegateFunction func,params object[] pas)
@@ -109,9 +109,9 @@ namespace QuanLyPhongLab
             if (CheckAccount(account) == true && CheckPassword(pass) == true)
             {
                 this._statusManager = OnOFF.on;
-                return true;
+                return "dang nhap thanh cong";
             }
-            return false;
+            return "sai tai khoan hoac mat khau";
         }
         public object RemoveDevice(Device device) //thanh li
         {
@@ -158,18 +158,6 @@ namespace QuanLyPhongLab
         {
             return processing(thamso);
         }
-        public object payMoney(params object[] thamso)//nộp tiền
-        {
-            return "pay money";
-        }
-        public object remind(params object[] thamso)//nhắc nhở
-        {
-            return "remind";
-        }
-        public object discipline(params object[] thamso)//kỉ luật
-        {
-            return "discipline";
-        }
         public object addCabinet(params object[] thamso) // thêm đồ vào tủ
         {
             return "add device Cabinet";
@@ -184,13 +172,13 @@ namespace QuanLyPhongLab
         }
         public object baoCao(params object[] thamso) // tổng kết báo cáo cuối kì
         {
-            return "";
+            return "xuat bao cao";
         }
 
         //
         private object ManagerDB_querySelect(params object[] pas)
         {
-            return "truy van select lay thong tin ";
+            return "truy van select lay thong tin";
         }
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
