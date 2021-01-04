@@ -18,8 +18,8 @@ namespace QuanLyPhongLab
         public event PropertyChangedEventHandler PropertyChanged;
 
         public Cabinet cabinet { get; set; }
-        private OnOFF _statusManager;
-        public OnOFF statusManager { get { return this._statusManager; } }
+        private bool _statusManager;
+        public bool statusManager { get { return this._statusManager; } }
         private Database managerDB;
         private string password = String.Empty;
         public string account { get; }
@@ -57,7 +57,7 @@ namespace QuanLyPhongLab
         //
         public virtual object ManagerAction(delegateFunction func,params object[] pas)
         {
-            if (this.statusManager==OnOFF.on)
+            if (this.statusManager)
             {
                 return SelectFunction(func, pas); //
             }
@@ -68,17 +68,22 @@ namespace QuanLyPhongLab
         {
             return func(pas);
         }
-        public object ChangePassWord(params object[] pas) {
-            this.PropertyChanged += Manager_PropertyChanged;
-            string pass = (string)Enter(new delegateCondition(PasswordCondition));
-            this.password = pass;
-            NotifyPropertyChanged();
-            return pass;
+        public object ChangePassWord(params object[] pas)
+        {
+            if (this.statusManager)
+            {
+                this.PropertyChanged += Manager_PropertyChanged;
+                string pass = (string)Enter(new delegateCondition(PasswordCondition));
+                this.password = pass;
+                NotifyPropertyChanged();
+                return "";
+            }
+            return "";
         }
         public object InfoDevice(params object[] pas) // pas[0] la device
         {
             managerDB.queryEvent += ManagerDB_querySelect;
-            return managerDB.Query(pas[0]);
+            return managerDB.Query(pas);
         }
         public Manager SignUp(params object[] pas)
         {
@@ -108,20 +113,28 @@ namespace QuanLyPhongLab
             string pass = Console.ReadLine();
             if (CheckAccount(account) == true && CheckPassword(pass) == true)
             {
-                this._statusManager = OnOFF.on;
-                return "dang nhap thanh cong";
+                this._statusManager = true;
+                return true;
             }
-            return "sai tai khoan hoac mat khau";
+            return false;
         }
-        public object RemoveDevice(Device device) //thanh li
+        public object RemoveDevice(params object[] pas) //thanh li
         {
-            managerDB.queryEvent += ManagerDB_queryUpdateAdd;
-            return managerDB.Query(device);
+            if (this.statusManager)
+            {
+                managerDB.queryEvent += ManagerDB_queryUpdateRemove;
+                return managerDB.Query(pas);
+            }
+            return "Chua dang nhap";
         }
-        public object AddDevice(Device device) //them thiet bi
+        public object AddDevice(params object[] pas) //them thiet bi
         {
-            managerDB.queryEvent += ManagerDB_queryUpdateRemove;
-            return managerDB.Query(device);
+            if (this.statusManager)
+            {
+                managerDB.queryEvent += ManagerDB_queryUpdateAdd;
+                return managerDB.Query(pas);
+            }
+            return "chua dang nhap";
         }
         public object openLabRoom(params object[] pas)
         {
@@ -191,7 +204,7 @@ namespace QuanLyPhongLab
         }
         private object ManagerDB_queryUpdateRemove(params object[] pas) //
         {
-            return "Remove device   " + pas[0].GetType().Name;
+            return "Remove device";
         }
         private object ManagerDB_queryUpdateAdd(params object[] pas) //
         {

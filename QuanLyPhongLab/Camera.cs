@@ -28,7 +28,6 @@ namespace QuanLyPhongLab
             ktDB.queryEvent += KtDB_queryEvent;
             return (bool)ktDB.Query();
         }
-
         private object KtDB_queryEvent(params object[] pas)
         {
             Random rand = new Random();

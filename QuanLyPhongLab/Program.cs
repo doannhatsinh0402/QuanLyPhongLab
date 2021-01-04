@@ -7,7 +7,7 @@ namespace QuanLyPhongLab
     {
         static void Main(string[] args)
         {
-            TestDatabase();
+            TestNotification();
         }
         public static void TestCamera()
         {
@@ -20,15 +20,22 @@ namespace QuanLyPhongLab
             db.queryEvent += Db_queryTest;
             Console.WriteLine(db.Query());
         }
-        private static object Db_queryTest(params object[] pas) // pas[0] la table
+        private static object Db_queryTest(params object[] pas) 
         {
             return "truy van vi du";
         }
         public static void TestManager()
         {
-            Manager a = new Manager("123","123");
-            Device b = new Camera();
+            Manager a = new Manager("123", "123");
             a.SignIn();
+            Camera b = new Camera();
+            Console.WriteLine(a.ManagerAction(a.RemoveDevice, b));
+        }
+        public static void TestNotification()
+        {
+            Manager a = new Manager("123", "123");
+            a.SignIn();
+            a.ChangePassWord(); 
         }
     }
 }
